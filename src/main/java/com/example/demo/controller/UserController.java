@@ -51,7 +51,12 @@ public class UserController {
             return new ResponseEntity<>(resUser, HttpStatus.OK);
         else
             return new ResponseEntity<>("Not success", HttpStatus.BAD_REQUEST);
+    }
 
+    @DeleteMapping("/{id}")
+    public ResponseEntity deleteUser(@PathVariable("id") Long id){
+        userService.deleteUser(id);
+        return new ResponseEntity("Xoa thanh cong",HttpStatus.OK);
     }
 
 }
